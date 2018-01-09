@@ -15,7 +15,9 @@ export class RegisterComponent implements OnInit {
 	description: string = '';
 	name: string = '';
 
-	constructor( private fb: FormBuilder ) { 
+	constructor( private fb: FormBuilder, 
+				 private registerService: RegisterService ) {
+
 		this.registerForm = fb.group({
 			'name': [ null, Validators.compose([ Validators.required, Validators.minLength(2), Validators.maxLength(12)])],
 			'description': [ null, Validators.compose([ Validators.required, Validators.minLength(4)])]
@@ -29,7 +31,11 @@ export class RegisterComponent implements OnInit {
 		this.name = userInfo.name;
 		this.description = userInfo.description;
 
-		console.log(userInfo)
+		this.registerService.register(userInfo)
+			.subscribe((res) => {
+				console.log(res);
+			});
+
 		this.registerForm.reset();
 	}
 
