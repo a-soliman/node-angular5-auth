@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import { RegisterService } from '../services/register.service';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -28,7 +30,7 @@ export class RegisterComponent implements OnInit {
 		this.description = userInfo.description;
 
 		console.log(userInfo)
-		this.registerForm.reset()
+		this.registerForm.reset();
 	}
 
 }

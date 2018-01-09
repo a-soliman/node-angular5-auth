@@ -1,7 +1,7 @@
 <h2 class="page-header">Register</h2>
 <p>Please register using the form below</p>
 
-<form [formGroup]="registerForm" (ngSubmit)="register(registerForm.value)" >
+<form [formGroup]="registerForm" (ngSubmit)="register(registerForm.value)" enctype="multipart/form-data" >
 	<div class="form-group">
 		<label for="">aaa</label>
 		<input formControlName="name" type="text" class="form-control">
